@@ -33,4 +33,15 @@ public class Conversation {
 
     @OneToMany
     private List<Message> messagesList;
+
+    public Conversation toResponse() {
+        return Conversation.builder()
+                .conversationId(this.conversationId)
+                .conversationName(this.conversationName)
+                .createdAt(this.createdAt)
+                .updatedAt(this.updatedAt)
+                .membersList(this.membersList)
+                .messagesList(this.messagesList)
+                .build();
+    }
 }

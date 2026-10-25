@@ -43,4 +43,17 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<ConversationMember> conversationMembersList;
 
+
+    public User toResponse() {
+        return User.builder()
+                .userId(this.userId)
+                .userName(this.userName)
+                .email(this.email)
+                .passwordHash(this.passwordHash)
+                .createdAt(this.createdAt)
+                .updatedAt(this.updatedAt)
+                .messageList(this.messageList)
+                .conversationMembersList(this.conversationMembersList)
+                .build();
+    }
 }

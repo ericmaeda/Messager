@@ -30,4 +30,12 @@ public class ConversationMember {
     @JoinColumn
     private Conversation conversation;
 
+    public ConversationMember toResponse() {
+        return ConversationMember.builder()
+                .conversationMembersId(this.conversationMembersId)
+                .joinedAt(this.joinedAt)
+                .user(this.user)
+                .conversation(this.conversation)
+                .build();
+    }
 }

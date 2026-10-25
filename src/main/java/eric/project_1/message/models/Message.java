@@ -33,4 +33,14 @@ public class Message {
     @JoinColumn(name = "conversation_id", nullable = false)
     private Conversation conversation;
 
+    public Message toResponse() {
+        return Message.builder()
+                .messageId(this.messageId)
+                .messageContent(this.messageContent)
+                .sentAt(this.sentAt)
+                .sender(this.sender)
+                .conversation(this.conversation)
+                .build();
+    }
+
 }
